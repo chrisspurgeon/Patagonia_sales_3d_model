@@ -398,28 +398,17 @@
   ]
 ];
 
+cube([14,33,2]);
 
 for(i = [0 : 11]) {
 	echo(str("row:",i));
 	for(j = [0 : 30]) {
-		echo(sales[i][j] / 20000);
+		echo(sales[i][j] / 300000);
+		echo(str("i",i));
+		echo(str("j",j));
+		translate([i + 1, j + 1, 2])
+		cube([1.05, 1, sales[i][j] / 300000]);
+
 	}
 }
-cube();
 
-
-
-
-/*
-
-for (month=[1:12], day = [1:31] ) {
-	translate([day + 1, month + 1, 1])
-	echo(month);
-	echo(day);
-	echo(sales[month - 1],[day - 1]);
-	cube([1.05, 1, sales[day - 1][month - 1] / 500000]);
-}
-cube([35,16,1]);
-
-
-*/

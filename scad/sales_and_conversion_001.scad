@@ -1,3 +1,6 @@
+yAxisSpacing = 3;
+conversionScaling = 3;
+
 sales =
   [
     [
@@ -804,7 +807,7 @@ conversion =
     ]
   ];
 
-cube([14,33,2]);
+cube([37,33,2]);
 
 for(i = [0 : 11]) {
 	echo(str("row:",i));
@@ -812,13 +815,18 @@ for(i = [0 : 11]) {
 //		echo(sales[i][j] / 300000);
 //		echo(str("i",i));
 //		echo(str("j",j));
-		translate([i + 1, j + 1, 2])
-		cube([conversion[i][j] / 2, 1, sales[i][j] / 300000]);
+
+            ySpace = (i + 1) * yAxisSpacing;
+            conversionWidth = conversion[i][j] / conversionScaling;
+		translate([ySpace - conversionWidth, j + 1, 2])
+		cube([conversionWidth, 1, sales[i][j] / 300000]);
 
 	}
 }
 
+/*
 for (ypos=[0:10], xpos = [0:6]) {
 	translate([(xpos * 14 / 6) - (0.5 * xpos / 6), (ypos * 33/10) -(0.5 * ypos/10), -0.4])
 	cube([0.5, 0.5, 0.5]);
 }
+*/

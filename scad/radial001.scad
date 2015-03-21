@@ -751,13 +751,20 @@ conversion =
 
 
 echo("HELLO");
-angle = 360 / 265;
+angle = 360 / 365;
+maxConversion = 7.17;
+maxSales =  3028201;
+maxHeight = 10;
+maxLength = 40;
+
+
 for (i = [0:364]) {
     echo(i);
     angleStart = angle * i;
     angleEnd = angleStart + angle + 0.01;
-    h = rands(0,6,1)[0];
-    length = rands(20,40,1)[0];
+    h = conversion[i] / maxConversion * maxHeight;
+    length = sales[i] / maxSales * maxLength;
+
     linear_extrude(height = h, center = false, convexity = 10, twist = 0)
     
     polygon(points=[
@@ -769,6 +776,6 @@ for (i = [0:364]) {
     
 }
 
-cylinder(h = 8, r=18, $fn=360);
+//cylinder(h = 8, r=18, $fn=360);
 translate([-0.25,0,8])
 cube(size=[0.5,18,1]);

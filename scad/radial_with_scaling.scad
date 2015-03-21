@@ -747,11 +747,11 @@ conversion =
 
 difference() {
     // This piece will be created:
-    cylinder(r=50, h=2, center=true);
+    cylinder(r=42.5, h=2, center=true);
  
     // Everything else listed will be taken away:
     translate([0,0,-0.5]);
-    cylinder(r=46, h=3, center=true);
+    cylinder(r=41.5, h=3, center=true);
 }
 
 

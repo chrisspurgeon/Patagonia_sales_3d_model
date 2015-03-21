@@ -745,6 +745,14 @@ conversion =
 
 
 
+difference() {
+    // This piece will be created:
+    cylinder(r=50, h=2, center=true);
+ 
+    // Everything else listed will be taken away:
+    translate([0,0,-0.5]);
+    cylinder(r=46, h=3, center=true);
+}
 
 
 
@@ -758,6 +766,12 @@ minHeight = 3;
 maxHeight = 10;
 minLength = 15;
 maxLength = 25;
+
+
+
+
+
+
 
 
 for (i = [0:364]) {
@@ -784,3 +798,11 @@ cube(size=[0.25,7,0.5]);
 
 translate([0,0,-1])
 cylinder(h = 1, r = 40.5, $fn=365);
+
+
+
+
+
+
+
+
